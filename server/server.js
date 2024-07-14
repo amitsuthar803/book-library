@@ -16,14 +16,6 @@ app.use(cors());
 const bookRoutes = require("./routes/bookRoutes");
 app.use("/api/books", bookRoutes);
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "../client/dist")));
-
-// The "catchall" handler: for any request that doesn't match any other routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist", "index.html"));
-});
-
 // MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI, {
