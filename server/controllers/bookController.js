@@ -4,6 +4,7 @@ const Book = require("../models/Book");
 exports.getBooks = async (req, res) => {
   try {
     const books = await Book.find();
+    console.log("data connected");
     res.json(books);
   } catch (err) {
     res.status(500).json({ message: err.message });
